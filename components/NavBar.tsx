@@ -16,7 +16,7 @@ function NavBar() {
                 Home
             </h2>
             <h2 className='hover:bg-blue-500 px-3 cursor-pointer p-2 rounded-full hover:text-white'>
-                History
+                Explore
             </h2>
             <h2 className='hover:bg-blue-500 px-3 cursor-pointer p-2 rounded-full hover:text-white'>
                 Contact Us

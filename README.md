@@ -43,3 +43,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 5. Add the ClerkProvider wrapper to layout section
 6. Create middleware.ts file and add the code from docs
 7. Add Sign-in code 
+8. Update the font by importing from google and replace 'inter'
+9. Install DaisyUI > https://daisyui.com/docs/install/ > npm i -D daisyui@latest
+10. Update plugins in tailwind.config.ts file using doc plugins: [require("daisyui")],
+11. 
