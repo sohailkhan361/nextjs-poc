@@ -10,12 +10,25 @@ import { getItemsList } from '@/services';
 import { ItemsListType } from '@/types';
 
 export default function Home() {
+  const [itemsOrgLists, setItemsOrgLists] = useState<ItemsListType[]>([]);
   const [itemsLists, setItemsLists] = useState<ItemsListType[]>([]);
 
   const getItemsList_ = async () => {
     const result: any = await getItemsList();
+    setItemsOrgLists(result?.itemsLists);
     setItemsLists(result?.itemsLists);
   };
+
+  const filterItemsList = (publisher: string) => {
+    const filterList = itemsOrgLists.filter((item: any) => (item.publisher === publisher));
+    setItemsLists(filterList);
+  };
+
+  const orderItemList = (order: any) => {
+    const sortedData = [...itemsOrgLists].sort((a, b) =>
+      order == 1 ? a.price - b.price : b.price - a.price);
+    setItemsLists(sortedData);
+  }
 
   useEffect(() => {
     getItemsList_();
@@ -25,8 +38,14 @@ export default function Home() {
     <div className='p-5 sm:px-10 md:px-20'>
       <Hero />
       <SearchInput />
-      <ItemsFilterOption />
-      <ItemsList itemsLists={itemsLists} />
+      <ItemsFilterOption
+        itemsLists={itemsOrgLists}
+        setPublisher={(value: string) => filterItemsList(value)}
+        orderItemsList={(value: string) => orderItemList(value)}
+      />
+      <ItemsList
+        itemsLists={itemsLists}
+      />
     </div>
   )
 }
