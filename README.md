@@ -74,4 +74,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
         }
     }
 23. Add react icons dependency for icons > npm install react-icons --save
-24. 
+24. For Adding data back to Hygraph use mutation in API playground
+25. Assign necessary permissions for mutation on respective models.
+26. 

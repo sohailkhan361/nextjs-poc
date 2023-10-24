@@ -1,17 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image'
 import Hero from '@/components/Home/Hero'
 import SearchInput from '@/components/Home/SearchInput'
 import ItemsFilterOption from '@/components/Home/ItemsFilterOption'
 import ItemsList from '@/components/Home/ItemsList';
+import Notification from '@/components/Notification';
 import { getItemsList } from '@/services';
 import { ItemsListType } from '@/types';
+import { ItemsContext } from '@/context/ItemsContext';
 
 export default function Home() {
   const [itemsOrgLists, setItemsOrgLists] = useState<ItemsListType[]>([]);
   const [itemsLists, setItemsLists] = useState<ItemsListType[]>([]);
+  const [showToastMsg,setShowToastMsg]=useState<boolean>(false);
 
   const getItemsList_ = async () => {
     const result: any = await getItemsList();
@@ -34,18 +36,32 @@ export default function Home() {
     getItemsList_();
   }, []);
 
+  useEffect(()=>{
+    if(showToastMsg)
+    {
+      setTimeout(function(){
+        setShowToastMsg(false)
+      }, 3000);
+    }
+  },[showToastMsg]);
+
   return (
     <div className='p-5 sm:px-10 md:px-20'>
-      <Hero />
-      <SearchInput />
-      <ItemsFilterOption
-        itemsLists={itemsOrgLists}
-        setPublisher={(value: string) => filterItemsList(value)}
-        orderItemsList={(value: string) => orderItemList(value)}
-      />
-      <ItemsList
-        itemsLists={itemsLists}
-      />
+      <ItemsContext.Provider value={{showToastMsg, setShowToastMsg}}>
+          <Hero />
+          <SearchInput />
+          <ItemsFilterOption
+            itemsLists={itemsOrgLists}
+            setPublisher={(value: string) => filterItemsList(value)}
+            orderItemsList={(value: string) => orderItemList(value)}
+          />
+          <ItemsList
+            itemsLists={itemsLists}
+          />
+          {
+            showToastMsg ? <Notification msg={'Request sent successfully.'} /> : null
+          }
+      </ItemsContext.Provider>
     </div>
   )
 }

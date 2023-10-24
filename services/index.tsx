@@ -36,3 +36,28 @@ export const getUserLocations = async () => {
     const result = await request(MASTER_URL, query);
     return result;
 };
+
+export const createCart = async (formValue: any) => {
+    const mutationQuery = gql`
+        mutation MyQuery {
+            createCart(
+                data: { 
+                        location: "`+formValue.location+`",
+                        contactNumber: "`+formValue.contactNumber+`",
+                        couponCode: "`+formValue.couponCode+`", 
+                        email: "`+formValue.email+`",
+                        userName: "`+formValue.userName+`", 
+                        itemsList: {
+                            connect: {
+                                id: "`+formValue.itemsList.connect.id+`"
+                            }
+                        }
+                }
+            ) {
+                id
+            }
+        }`;
+
+    const result = await request(MASTER_URL, mutationQuery);
+    return result;
+};

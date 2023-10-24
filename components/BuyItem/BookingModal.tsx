@@ -15,7 +15,7 @@ const BookingModal = ({ selectedItem }: any) => {
                     <ItemCard item={selectedItem} />
                 </div>
                 <div>
-                    <Form />
+                    <Form item={selectedItem} />
                 </div>
             </div>
         </form>
