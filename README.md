@@ -35,7 +35,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-Steps:
+# Steps:
 1. Create account on Clerk.com > Copy the API keys
 2. Search documentation of Clerk with NextJS
 3. npm install @clerk/nextjs
