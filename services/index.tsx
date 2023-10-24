@@ -6,13 +6,16 @@ export const getItemsList = async () => {
     const query = gql`
         query ItemsLists {
             itemsLists {
-            createdAt
-            id
-            name
-            price
-            publishedAt
-            rank
-            updatedAt
+                createdAt
+                id
+                name
+                price
+                publishedAt
+                rank
+                updatedAt
+                image {
+                    url
+                }
             }
         }`;
 

@@ -67,4 +67,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     Go to Project Settings in HyGraph > Environment > paste in the url
     Use the function as needed.
     Note: Initialize the defaults in HyGraph > Settings > API access to fix the error in API call to give permissions.
-22. 
+22. For error encountered while rendering images:
+    Add in next.config.js: nextConfig = {
+        images: {
+            domains: ['media.graphassets.com']
+        }
+    }
+23. Add react icons dependency for icons > npm install react-icons --save
+24. 

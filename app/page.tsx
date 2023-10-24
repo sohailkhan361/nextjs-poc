@@ -5,15 +5,16 @@ import Image from 'next/image'
 import Hero from '@/components/Home/Hero'
 import SearchInput from '@/components/Home/SearchInput'
 import ItemsFilterOption from '@/components/Home/ItemsFilterOption'
+import ItemsList from '@/components/Home/ItemsList';
 import { getItemsList } from '@/services';
-import { ItemsList } from '@/types';
+import { ItemsListType } from '@/types';
 
 export default function Home() {
-  const [itemsList, setItemsList] = useState<ItemsList[]>([]);
+  const [itemsLists, setItemsLists] = useState<ItemsListType[]>([]);
 
   const getItemsList_ = async () => {
-    const result = await getItemsList() as ItemsList[];
-    setItemsList(result);
+    const result: any = await getItemsList();
+    setItemsLists(result?.itemsLists);
   };
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function Home() {
       <Hero />
       <SearchInput />
       <ItemsFilterOption />
+      <ItemsList itemsLists={itemsLists} />
     </div>
   )
 }

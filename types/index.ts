@@ -1,4 +1,4 @@
-export interface ItemsList {
+export interface ItemsListType {
     createdAt: string;
     id: string;
     name: string;
