@@ -9,6 +9,7 @@ import Notification from '@/components/Notification';
 import { getItemsList } from '@/services';
 import { ItemsListType } from '@/types';
 import { ItemsContext } from '@/context/ItemsContext';
+import Carousel from '@/components/Home/Carousel';
 
 export default function Home() {
   const [itemsOrgLists, setItemsOrgLists] = useState<ItemsListType[]>([]);
@@ -58,6 +59,7 @@ export default function Home() {
           <ItemsList
             itemsLists={itemsLists}
           />
+          <Carousel />
           {
             showToastMsg ? <Notification msg={'Request sent successfully.'} /> : null
           }
