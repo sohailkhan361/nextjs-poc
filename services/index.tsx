@@ -16,6 +16,8 @@ export const getItemsList = async () => {
                 image {
                     url
                 }
+                publisher
+                itemType
             }
         }`;
 
