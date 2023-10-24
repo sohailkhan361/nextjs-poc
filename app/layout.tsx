@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider, SignIn, SignedIn, SignedOut } from '@clerk/nextjs'
 import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           <SignedIn>
             <NavBar />
             {children}
+            <Footer />
           </SignedIn>
           <SignedOut>
             <SignIn />
@@ -30,5 +32,5 @@ export default function RootLayout({
         </body>
       </html>
     </ClerkProvider>
-  )
-}
+  );
+};

@@ -59,7 +59,12 @@ export default function Home() {
           <ItemsList
             itemsLists={itemsLists}
           />
-          <Carousel />
+          <div className='w-full mt-20'>
+            <h2 className='w-full text-4xl p-5 items-center justify-center flex font-bold'>
+              Explore More
+            </h2>
+            <Carousel />
+          </div>
           {
             showToastMsg ? <Notification msg={'Request sent successfully.'} /> : null
           }
