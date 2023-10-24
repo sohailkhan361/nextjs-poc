@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { FaBook, FaChartLine } from "react-icons/fa";
 import { BiBookReader } from "react-icons/bi";
 
-function Itemitemd(props: any) {
+function ItemCard(props: any) {
     const [item, setItem] = useState<any>();
 
     useEffect(() => {
@@ -65,4 +65,4 @@ function Itemitemd(props: any) {
     )
 }
 
-export default Itemitemd
+export default ItemCard
