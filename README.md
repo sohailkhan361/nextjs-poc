@@ -61,4 +61,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 16. Using the API playground, create the query to select/unselect the field required.
 17. Install <GraphQL Request> dependency from https://www.npmjs.com/package/graphql-request
 18. > npm add graphql-request graphql
-19. 
+19. Add index.ts file in services folder and add the query using 'ql' imported from graphQL.
+20. Note: Make sure the 'request' is coming from graphQl request
+21. To provide url to the request
+    Go to Project Settings in HyGraph > Environment > paste in the url
+    Use the function as needed.
+    Note: Initialize the defaults in HyGraph > Settings > API access to fix the error in API call to give permissions.
+22. 
