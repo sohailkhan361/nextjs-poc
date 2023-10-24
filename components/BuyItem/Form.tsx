@@ -1,11 +1,13 @@
-import { BookCreatedFlagContext } from "@/context/BookCreatedFlagContext";
-import { createBooking, getStoreLocations } from "@/services";
+// import { BookCreatedFlagContext } from "@/context/BookCreatedFlagContext";
+import { getUserLocations } from "@/services";
 import { useUser } from "@clerk/nextjs";
 import React, { useContext, useEffect, useState } from "react";
 
-function Form({ car }: any) {
-    const [storeLocation, setStoreLocation] = useState<any>([]);
-    const { showToastMsg, setShowToastMsg } = useContext(BookCreatedFlagContext)
+function Form({ item }: any) {
+    const today: any = new Date();
+    const [userLocation, setUserLocation] = useState<any>([]);
+    // const { showToastMsg, setShowToastMsg } = useContext(BookCreatedFlagContext);
+
     const [formValue, setFormValue] = useState({
         location: '',
         pickUpDate: '',
@@ -14,25 +16,12 @@ function Form({ car }: any) {
         dropOffTime: '',
         contactNumber: '',
         userName: 'Sohail',
-        carId: ""
-    })
+        itemId: ''
+    });
 
-    const today: any = new Date();
-    useEffect(() => {
-        getStoreLocation_();
-    }, []);
-
-    useEffect(() => {
-        if (car) {
-            setFormValue({
-                ...formValue,
-                carId: car.id
-            });
-        }
-    }, [car])
-    const getStoreLocation_ = async () => {
-        const resp: any = await getStoreLocations();
-        setStoreLocation(resp?.storesLocations);
+    const getUserLocation_ = async () => {
+        const resp: any = await getUserLocations();
+        setUserLocation(resp?.userLocations);
     };
 
     const handleChange = (event: any) => {
@@ -44,28 +33,41 @@ function Form({ car }: any) {
 
     const handleSubmit = async () => {
         console.log(formValue);
-        const resp = await createBooking(formValue);
-        console.log(resp);
-        if (resp) {
-            setShowToastMsg(true);
-        }
+        // const resp = await createBooking(formValue);
+        // console.log(resp);
+        // if (resp) {
+        //     setShowToastMsg(true);
+        // }
     }
+
+    useEffect(() => {
+        getUserLocation_();
+    }, []);
+
+    useEffect(() => {
+        if (item) {
+            setFormValue({
+                ...formValue,
+                itemId: item.id
+            });
+        }
+    }, [item]);
+
 
     return (
         <div>
             <div className="flex flex-col w-full mb-5">
-                <label className="text-gray-400">PickUp Location</label>
+                <label className="text-gray-400">Location</label>
                 <select className="select select-bordered w-full max-w-lg"
                     name="location"
                     onChange={handleChange}
                 >
                     <option disabled selected>
-                        PickUp Location?
+                        Pick a Location
                     </option>
-                    {storeLocation &&
-                        storeLocation.map((loc: any, index: number) => (
-                            <option key={index}>{loc?.address}</option>
-                        ))}
+                    {userLocation && userLocation.map((loc: any, index: number) => (
+                        <option key={index}>{loc?.address}</option>
+                    ))}
                 </select>
             </div>
             <div className="flex flec-col gap-5 mb-5">
@@ -125,7 +127,9 @@ function Form({ car }: any) {
                 />
             </div>
             <div className="modal-action">
-                <button className="btn">Close</button>
+                <button className="btn">
+                    Close
+                </button>
                 <button
                     className="btn bg-blue-500 text-white hover:bg-blue-800"
                     onClick={handleSubmit}
@@ -133,7 +137,6 @@ function Form({ car }: any) {
                     Save
                 </button>
             </div>
-
         </div>
     );
 }

@@ -14,7 +14,7 @@ const ItemsList = (props: any) => {
                         setSelectedItem(item);
                         (window as any).my_modal_4.showModal();
                         }}
-                    >
+                >
                     <ItemCard item={item} />
                 </div>
             ))}

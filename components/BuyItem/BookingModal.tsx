@@ -18,11 +18,6 @@ const BookingModal = ({ selectedItem }: any) => {
                     <Form />
                 </div>
             </div>
-            <div className="modal-action">
-                <button className="btn">
-                    Close
-                </button>
-            </div>
         </form>
     )
 }
