@@ -6,7 +6,7 @@ import {
 function NavBar() {
   return (
     <div className='flex items-center justify-between p-3 px-5 shadow-sm border-b-[1px]'>
-        <Image src='/logo.png'
+        <Image src='/logo.svg'
             alt='logo'
             width={100}
             height={100}
