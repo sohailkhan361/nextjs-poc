@@ -6,7 +6,7 @@ const Carousel = () => {
         <div>
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
-                    <Image src='/Carousel1.jpeg'
+                    <Image src='/Carousel2.jpeg'
                         alt='carousel'
                         width={400}
                         height={500}
@@ -17,11 +17,11 @@ const Carousel = () => {
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute p-10 top-4/4 left-4/4 text-white text-6xl font-extrabold w-[400px]">
-                        Jason is back!
+                        Available on Amazon & Audible
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
-                    <Image src='/Carousel2.jpeg'
+                    <Image src='/Carousel1.jpeg'
                         alt='carousel'
                         width={400}
                         height={200}
@@ -32,7 +32,7 @@ const Carousel = () => {
                         <a href="#slide3" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute p-10 top-4/4 left-4/4 text-white text-6xl font-extrabold w-[400px]">
-                        Available on Amazon & Audible
+                        Jason is back!
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
