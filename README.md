@@ -46,4 +46,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 8. Update the font by importing from google and replace 'inter'
 9. Install DaisyUI > https://daisyui.com/docs/install/ > npm i -D daisyui@latest
 10. Update plugins in tailwind.config.ts file using doc plugins: [require("daisyui")],
-11. 
+11. For custom size use text-[12px] in tailwind
+12. 
