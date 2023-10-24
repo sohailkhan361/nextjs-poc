@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import Carousel from './Carousel'
 
 function Hero() {
     return (
