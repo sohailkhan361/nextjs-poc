@@ -7,7 +7,7 @@ import NavBar from '@/components/NavBar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Audible App',
+  title: 'Audiobooks App',
   description: 'Next Js 13 App using React, Tailwind CSS, GraphQL, HyGraph, Typescript',
 }
 
