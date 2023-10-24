@@ -34,3 +34,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Steps:
+1. Create account on Clerk.com > Copy the API keys
+2. Search documentation of Clerk with NextJS
+3. npm install @clerk/nextjs
+4. create .env.local file > Paste the API keys
+5. Add the ClerkProvider wrapper to layout section
+6. Create middleware.ts file and add the code from docs
+7. Add Sign-in code 
